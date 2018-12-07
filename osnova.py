@@ -14,79 +14,79 @@ class MyWidget(QMainWindow, Ui_Encryptor):
 
     def encrypt(self):
         if self.but_a1z26.isChecked():
-            print('1')
+            print(':: Encrypt A1Z26 ::')
         elif self.but_rot13.isChecked():
-            print('2')
+            print(':: Encrypt ROT13 ::')
         elif self.but_xor.isChecked():
-            print('3')
+            print(':: Encrypt XOR ::')
         elif self.but_rsa.isChecked():
-            print('4')
+            print(':: Encrypt RSA ::')
         elif self.but_atbash.isChecked():
-            print('5')
+            print(':: Encrypt Atbash ::')
         elif self.but_vishener.isChecked():
-            print('6')
+            print(':: Encrypt Vishener ::')
         elif self.but_vernam.isChecked():
-            print('7')
+            print(':: Encrypt Vernam ::')
         elif self.but_affine.isChecked():
-            print('8')
+            print(':: Encrypt Affine ::')
         elif self.but_bacon.isChecked():
-            print('9')
+            print(':: Encrypt Bacon ::')
         elif self.but_polibiy.isChecked():
-            print('10')
+            print(':: Encrypt Polibiy ::')
         elif self.but_book.isChecked():
-            print('11')
+            print(':: Encrypt Book ::')
         elif self.but_thritemius.isChecked():
-            print('12')
+            print(':: Encrypt Thritemius ::')
         elif self.but_couples.isChecked():
-            print('13')
+            print(':: Encrypt Couples ::')
         elif self.but_rotors.isChecked():
-            print('14')
+            print(':: Encrypt Rotors ::')
         elif self.but_homophonic.isChecked():
-            print('15')
+            print(':: Encrypt Homophonic ::')
         elif self.but_gronsfeld.isChecked():
-            print('16')
+            print(':: Encrypt Gronsfeld ::')
         elif self.but_replace.isChecked():
-            print('17')
+            print(':: Encrypt Replace ::')
         elif self.but_caesar.isChecked():
-            print('18')
+            print(':: Encrypt Caesar ::')
 
     def decrypt(self):
         if self.but_a1z26.isChecked():
-            print('1')
+            print(':: Decrypt A1Z26 ::')
         elif self.but_rot13.isChecked():
-            print('2')
+            print(':: Decrypt ROT13 ::')
         elif self.but_xor.isChecked():
-            print('3')
+            print(':: Decrypt XOR ::')
         elif self.but_rsa.isChecked():
-            print('4')
+            print(':: Decrypt RSA ::')
         elif self.but_atbash.isChecked():
-            print('5')
+            print(':: Decrypt Atbash ::')
         elif self.but_vishener.isChecked():
-            print('6')
+            print(':: Decrypt Vishener ::')
         elif self.but_vernam.isChecked():
-            print('7')
+            print(':: Decrypt Vernam ::')
         elif self.but_affine.isChecked():
-            print('8')
+            print(':: Decrypt Affine ::')
         elif self.but_bacon.isChecked():
-            print('9')
+            print(':: Decrypt Bacon ::')
         elif self.but_polibiy.isChecked():
-            print('10')
+            print(':: Decrypt Polibiy ::')
         elif self.but_book.isChecked():
-            print('11')
+            print(':: Decrypt Book ::')
         elif self.but_thritemius.isChecked():
-            print('12')
+            print(':: Decrypt Thritemius ::')
         elif self.but_couples.isChecked():
-            print('13')
+            print(':: Decrypt Couples ::')
         elif self.but_rotors.isChecked():
-            print('14')
+            print(':: Decrypt Rotors ::')
         elif self.but_homophonic.isChecked():
-            print('15')
+            print(':: Decrypt Homophonic ::')
         elif self.but_gronsfeld.isChecked():
-            print('16')
+            print(':: Decrypt Gronsfeld ::')
         elif self.but_replace.isChecked():
-            print('17')
+            print(':: Decrypt Replace ::')
         elif self.but_caesar.isChecked():
-            print('18')
+            print(':: Decrypt Caesar ::')
 
 
 app = QApplication(sys.argv)
