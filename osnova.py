@@ -3,6 +3,7 @@ import math
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from shifr_ui import Ui_Encryptor
+import crypts
 
 
 class MyWidget(QMainWindow, Ui_Encryptor):
@@ -11,10 +12,66 @@ class MyWidget(QMainWindow, Ui_Encryptor):
         self.setupUi(self)
         self.but_en.clicked.connect(self.encrypt)
         self.but_de.clicked.connect(self.decrypt)
+        if self.but_a1z26.isChecked():
+            self.label_5.setText("                                      :: ключ не требуется ::")
+        elif self.but_rot13.isChecked():
+            self.label_5.setText("                                      :: ключ не требуется ::")
+        elif self.but_xor.isChecked():
+            self.label_5.setText("                                      :: ключом является одно число")
+        elif self.but_rsa.isChecked():
+            self.label_5.setText("                                      :: ключ не требуется ")
+        elif self.but_atbash.isChecked():
+            self.label_5.setText("                                      :: ключ не требуется ")
+        elif self.but_vishener.isChecked():
+            self.label_5.setText("                                   :: ключом является слово и любой набор символов")
+        elif self.but_vernam.isChecked():
+            self.label_5.setText("                                      :: ключ состоит из латнских букв и "
+                                 "по длине заданному тексту::")
+        elif self.but_affine.isChecked():
+            self.label_5.setText("                                      :: два числа, записанных через пробел"
+                                 " от 0 до 26 ::")
+        elif self.but_bacon.isChecked():
+            self.label_5.setText("                                      :: ключ не требуется ::")
+        elif self.but_polibiy.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_book.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_thritemius.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_couples.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_rotors.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_homophonic.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_gronsfeld.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_replace.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
+        elif self.but_caesar.isChecked():
+            self.label_5.setText("                                      :: для некоторых шифров "
+                                 "используются определённые "
+                                 "ключи, или не используются ::")
 
     def encrypt(self):
         if self.but_a1z26.isChecked():
-            print(':: Encrypt A1Z26 ::')
+            self.text_out.append(self.a1z26('E', self.text_in.text()))
         elif self.but_rot13.isChecked():
             print(':: Encrypt ROT13 ::')
         elif self.but_xor.isChecked():
