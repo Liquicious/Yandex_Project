@@ -1,18 +1,10 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'shifr_ui.ui'
-#
-# Created by: PyQt5 UI code generator 5.11.3
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Encryptor(object):
     def setupUi(self, Encryptor):
         Encryptor.setObjectName("Encryptor")
-        Encryptor.resize(831, 702)
+        Encryptor.resize(831, 625)
         Encryptor.setStyleSheet("background-color: rgb(93, 93, 93);")
         self.centralwidget = QtWidgets.QWidget(Encryptor)
         self.centralwidget.setObjectName("centralwidget")
@@ -44,10 +36,10 @@ class Ui_Encryptor(object):
         self.label.setStyleSheet("color: rgb(248, 255, 198);")
         self.label.setObjectName("label")
         self.text_in = QtWidgets.QTextEdit(self.centralwidget)
-        self.text_in.setGeometry(QtCore.QRect(210, 70, 611, 191))
+        self.text_in.setGeometry(QtCore.QRect(210, 160, 611, 191))
         self.text_in.setObjectName("text_in")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(150, 70, 51, 31))
+        self.label_2.setGeometry(QtCore.QRect(150, 160, 51, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Light")
         font.setPointSize(11)
@@ -73,7 +65,7 @@ class Ui_Encryptor(object):
         self.but_de.setStyleSheet("color: rgb(189, 255, 195);")
         self.but_de.setObjectName("but_de")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(150, 300, 51, 31))
+        self.label_3.setGeometry(QtCore.QRect(150, 390, 51, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Light")
         font.setPointSize(11)
@@ -83,7 +75,7 @@ class Ui_Encryptor(object):
         self.label_3.setStyleSheet("color: rgb(248, 255, 198);")
         self.label_3.setObjectName("label_3")
         self.text_out = QtWidgets.QTextEdit(self.centralwidget)
-        self.text_out.setGeometry(QtCore.QRect(210, 300, 611, 191))
+        self.text_out.setGeometry(QtCore.QRect(210, 390, 611, 191))
         self.text_out.setReadOnly(True)
         self.text_out.setObjectName("text_out")
         self.but_rot13 = QtWidgets.QRadioButton(self.centralwidget)
@@ -230,6 +222,10 @@ class Ui_Encryptor(object):
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("color: rgb(255, 179, 179);")
         self.label_4.setObjectName("label_4")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(156, 70, 661, 71))
+        self.label_5.setStyleSheet("color: rgb(170, 255, 255);")
+        self.label_5.setObjectName("label_5")
         Encryptor.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Encryptor)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 831, 21))
@@ -244,7 +240,7 @@ class Ui_Encryptor(object):
 
     def retranslateUi(self, Encryptor):
         _translate = QtCore.QCoreApplication.translate
-        Encryptor.setWindowTitle(_translate("Encryptor", "Cryptographer"))
+        Encryptor.setWindowTitle(_translate("Encryptor", "MainWindow"))
         self.but_a1z26.setText(_translate("Encryptor", "A1Z26"))
         self.label.setText(_translate("Encryptor", "Key"))
         self.label_2.setText(_translate("Encryptor", "Input"))
@@ -269,4 +265,8 @@ class Ui_Encryptor(object):
         self.but_caesar.setText(_translate("Encryptor", "Цезаря"))
         self.but_rsa.setText(_translate("Encryptor", "RSA"))
         self.label_4.setText(_translate("Encryptor", "Шифр"))
+        self.label_5.setText(_translate("Encryptor", "               "
+                                                     "                       :: для некоторых шифров"
+                                                     " используются определённ"
+                                                     "ые ключи, или не используются ::"))
 
