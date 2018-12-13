@@ -1,149 +1,97 @@
 import sys
-import math
-from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from shifr_ui import Ui_Encryptor
-import crypts
+from crypts import Crypts
 
 
-class MyWidget(QMainWindow, Ui_Encryptor):
+class MyWidget(QMainWindow, Ui_Encryptor, Crypts):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.but_en.clicked.connect(self.encrypt)
         self.but_de.clicked.connect(self.decrypt)
-        if self.but_a1z26.isChecked():
-            self.label_5.setText("                                      :: ключ не требуется ::")
-        elif self.but_rot13.isChecked():
-            self.label_5.setText("                                      :: ключ не требуется ::")
-        elif self.but_xor.isChecked():
-            self.label_5.setText("                                      :: ключом является одно число")
-        elif self.but_rsa.isChecked():
-            self.label_5.setText("                                      :: ключ не требуется ")
-        elif self.but_atbash.isChecked():
-            self.label_5.setText("                                      :: ключ не требуется ")
-        elif self.but_vishener.isChecked():
-            self.label_5.setText("                                   :: ключом является слово и любой набор символов")
-        elif self.but_vernam.isChecked():
-            self.label_5.setText("                                      :: ключ состоит из латнских букв и "
-                                 "по длине заданному тексту::")
-        elif self.but_affine.isChecked():
-            self.label_5.setText("                                      :: два числа, записанных через пробел"
-                                 " от 0 до 26 ::")
-        elif self.but_bacon.isChecked():
-            self.label_5.setText("                                      :: ключ не требуется ::")
-        elif self.but_polibiy.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_book.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_thritemius.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_couples.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_rotors.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_homophonic.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_gronsfeld.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_replace.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
-        elif self.but_caesar.isChecked():
-            self.label_5.setText("                                      :: для некоторых шифров "
-                                 "используются определённые "
-                                 "ключи, или не используются ::")
 
     def encrypt(self):
+        self.text_out.clear()
+        text_in = self.text_in.toPlainText()
+        text_key = self.text_key.toPlainText()
         if self.but_a1z26.isChecked():
-            self.text_out.append(self.a1z26('E', self.text_in.text()))
+            self.text_out.append(self.a1z26('E', text_in))
         elif self.but_rot13.isChecked():
-            print(':: Encrypt ROT13 ::')
+            self.text_out.append(self.rot13(text_in))
         elif self.but_xor.isChecked():
-            print(':: Encrypt XOR ::')
+            self.text_out.append(self.xor(text_in, text_key))
         elif self.but_rsa.isChecked():
-            print(':: Encrypt RSA ::')
+            self.text_out.append(self.rsa('E', text_in, text_key))
         elif self.but_atbash.isChecked():
-            print(':: Encrypt Atbash ::')
+            self.text_out.append(self.atbash(text_in))
         elif self.but_vishener.isChecked():
-            print(':: Encrypt Vishener ::')
+            self.text_out.append(self.vishener('E', text_in, text_key))
         elif self.but_vernam.isChecked():
-            print(':: Encrypt Vernam ::')
+            self.text_out.append(self.vernam('E', text_in, text_key))
         elif self.but_affine.isChecked():
-            print(':: Encrypt Affine ::')
+            self.text_out.append(self.affine('E', text_in, text_key))
         elif self.but_bacon.isChecked():
-            print(':: Encrypt Bacon ::')
+            self.text_out.append(self.bacon('E', text_in, text_key))
         elif self.but_polibiy.isChecked():
-            print(':: Encrypt Polibiy ::')
+            self.text_out.append(self.polibiy('E', text_in))
         elif self.but_book.isChecked():
-            print(':: Encrypt Book ::')
+            self.text_out.append(self.book('E', text_in, text_key))
         elif self.but_thritemius.isChecked():
-            print(':: Encrypt Thritemius ::')
+            self.text_out.append(self.thritemius(text_in))
         elif self.but_couples.isChecked():
-            print(':: Encrypt Couples ::')
+            self.text_out.append(self.couples(text_in))
         elif self.but_rotors.isChecked():
-            print(':: Encrypt Rotors ::')
+            self.text_out.append(self.rotors('E', text_in))
         elif self.but_homophonic.isChecked():
-            print(':: Encrypt Homophonic ::')
+            self.text_out.append(self.homophonic('E', text_in))
         elif self.but_gronsfeld.isChecked():
-            print(':: Encrypt Gronsfeld ::')
+            self.text_out.append(self.gronsfeld('E', text_in))
         elif self.but_replace.isChecked():
-            print(':: Encrypt Replace ::')
+            self.text_out.append(self.replace('E', text_in))
         elif self.but_caesar.isChecked():
-            print(':: Encrypt Caesar ::')
+            self.text_out.append(self.caesar('E', text_in, text_key))
 
     def decrypt(self):
+        self.text_out.clear()
+        text_in = self.text_in.toPlainText()
+        text_key = self.text_key.toPlainText()
         if self.but_a1z26.isChecked():
-            print(':: Decrypt A1Z26 ::')
+            self.text_out.append(self.a1z26('D', text_in))
         elif self.but_rot13.isChecked():
-            print(':: Decrypt ROT13 ::')
+            self.text_out.append(self.rot13(text_in))
         elif self.but_xor.isChecked():
-            print(':: Decrypt XOR ::')
+            self.text_out.append(self.xor(text_in, text_key))
         elif self.but_rsa.isChecked():
-            print(':: Decrypt RSA ::')
+            self.text_out.append(self.rsa('D', text_in, text_key))
         elif self.but_atbash.isChecked():
-            print(':: Decrypt Atbash ::')
+            self.text_out.append(self.atbash(text_in))
         elif self.but_vishener.isChecked():
-            print(':: Decrypt Vishener ::')
+            self.text_out.append(self.vishener('D', text_in, text_key))
         elif self.but_vernam.isChecked():
-            print(':: Decrypt Vernam ::')
+            self.text_out.append(self.vernam('D', text_in, text_key))
         elif self.but_affine.isChecked():
-            print(':: Decrypt Affine ::')
+            self.text_out.append(self.affine('D', text_in, text_key))
         elif self.but_bacon.isChecked():
-            print(':: Decrypt Bacon ::')
+            self.text_out.append(self.bacon('D', text_in, text_key))
         elif self.but_polibiy.isChecked():
-            print(':: Decrypt Polibiy ::')
+            self.text_out.append(self.polibiy('D', text_in))
         elif self.but_book.isChecked():
-            print(':: Decrypt Book ::')
+            self.text_out.append(self.book('D', text_in, text_key))
         elif self.but_thritemius.isChecked():
-            print(':: Decrypt Thritemius ::')
+            self.text_out.append(self.thritemius(text_in))
         elif self.but_couples.isChecked():
-            print(':: Decrypt Couples ::')
+            self.text_out.append(self.couples(text_in))
         elif self.but_rotors.isChecked():
-            print(':: Decrypt Rotors ::')
+            self.text_out.append(self.rotors('D', text_in))
         elif self.but_homophonic.isChecked():
-            print(':: Decrypt Homophonic ::')
+            self.text_out.append(self.homophonic('D', text_in))
         elif self.but_gronsfeld.isChecked():
-            print(':: Decrypt Gronsfeld ::')
+            self.text_out.append(self.gronsfeld('D', text_in))
         elif self.but_replace.isChecked():
-            print(':: Decrypt Replace ::')
+            self.text_out.append(self.replace('D', text_in))
         elif self.but_caesar.isChecked():
-            print(':: Decrypt Caesar ::')
+            self.text_out.append(self.caesar('D', text_in, text_key))
 
 
 app = QApplication(sys.argv)
