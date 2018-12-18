@@ -261,7 +261,7 @@ class Ui_Encryptor(object):
         self.but_replace.setText(_translate("Encryptor", "Replace"))
         self.but_caesar.setText(_translate("Encryptor", "Caesar"))
         self.but_rsa.setText(_translate("Encryptor", "RSA"))
-        self.label_4.setText(_translate("Encryptor", "Шифр"))
+        self.label_4.setText(_translate("Encryptor", "Cipher"))
         self.menuLOL.setTitle(_translate("Encryptor", " "))
         self.action.setText(_translate("Encryptor", ":0"))
 
