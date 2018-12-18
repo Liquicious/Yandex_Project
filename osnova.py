@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from shifr_ui import Ui_Encryptor
 from crypts import Crypts
 
@@ -10,6 +10,60 @@ class MyWidget(QMainWindow, Ui_Encryptor, Crypts):
         self.setupUi(self)
         self.but_en.clicked.connect(self.encrypt)
         self.but_de.clicked.connect(self.decrypt)
+        if self.but_a1z26.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_rot13.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_xor.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_rsa.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_atbash.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_vishener.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_vernam.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_affine.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_bacon.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_polibiy.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_book.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_thritemius.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_couples.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_rotors.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_homophonic.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_gronsfeld.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_replace.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
+        elif self.but_caesar.isChecked():
+            self.need_1key.setDisabled(True)
+            self.need_2key.setDisabled(True)
 
     def encrypt(self):
         self.text_out.clear()
@@ -50,7 +104,10 @@ class MyWidget(QMainWindow, Ui_Encryptor, Crypts):
         elif self.but_replace.isChecked():
             self.text_out.append(self.replace('E', text_in))
         elif self.but_caesar.isChecked():
-            self.text_out.append(self.caesar('E', text_in, text_key))
+            try:
+                self.text_out.append(self.caesar('E', text_in, int(text_key)))
+            except Exception:
+                raise
 
     def decrypt(self):
         self.text_out.clear()
